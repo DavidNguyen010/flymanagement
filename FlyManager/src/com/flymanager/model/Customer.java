@@ -2,22 +2,27 @@ package com.flymanager.model;
 
 public class Customer extends Person{
     String identityNumber;
+    String userName;
+    String password;
 
-    public Customer(String id, String name, String address, String phoneNumber,String identityNumber) {
+    public Customer(String id, String name, String address, String phoneNumber, String identityNumber, String username, String password) {
         super(id, name, address, phoneNumber);
         this.id = id;
         this.name = name;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.identityNumber = identityNumber;
+        this.userName = username;
+        this.password = password;
     }
 
-    public Customer(String id, String name, String address, String phoneNumber) {
-        super(id, name, address, phoneNumber);
-    }
+
     public Customer(){}
 
-
+    public Customer(String userName,String password){
+        this.userName = userName;
+        this.password = password;
+    }
 
 
     public String getIdentityNumber() {
@@ -36,5 +41,21 @@ public class Customer extends Person{
                 "address: " + address + "\t" +
                 "phoneNumber:  " + phoneNumber + "\t"
                 ;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

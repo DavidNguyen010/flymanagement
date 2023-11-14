@@ -19,7 +19,10 @@ public class CustomerData {
             CSVPrinter csvPrinter = new CSVPrinter(writer,CSVFormat.DEFAULT))
         {
             //header
-            csvPrinter.printRecord("ID","name","address","phone","identity");
+            csvPrinter.printRecord(
+                    "ID","name",
+                    "address","phone",
+                    "identity","username","password");
 
             //Ghi vao list customer
             for (Customer customer: customers){
@@ -29,6 +32,8 @@ public class CustomerData {
                         customer.getAddress(),
                         customer.getPhoneNumber(),
                         customer.getIdentityNumber());
+                        customer.getUserName();
+                        customer.getPassword();
             }
 
         }catch (IOException e){
@@ -48,7 +53,9 @@ public class CustomerData {
                 String address = csvRecord.get(2);
                 String phoneNumber = csvRecord.get(3);
                 String identityNumber = csvRecord.get(4);
-                Customer customer = new Customer(id,name,address,phoneNumber,identityNumber);
+                String username = csvRecord.get(5);
+                String password = csvRecord.get(6);
+                Customer customer = new Customer(id,name,address,phoneNumber,identityNumber,username,password);
                 customers.add(customer);
                 customer.toString();
             }

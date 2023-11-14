@@ -1,6 +1,5 @@
 package com.flymanager.data;
 
-import com.flymanager.model.Staff;
 import com.flymanager.model.Ticket;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
@@ -33,10 +32,7 @@ public class TicketData {
             e.printStackTrace();
         }
     }
- this.id = id;
-            this.flyCode = flyCode;
-            this.type = type;
-            this.price = price;
+
     public static List<Ticket> reader(String FILE){
         List<Ticket> tickets = new ArrayList<>();
         try(Reader reader = new FileReader(FILE);

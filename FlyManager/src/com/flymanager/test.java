@@ -1,38 +1,35 @@
 package com.flymanager;
 
-import com.flymanager.data.CustomerData;
-import com.flymanager.model.Customer;
+import com.flymanager.controller.LoginController;
+import com.flymanager.controller.RegisterController;
+import com.flymanager.view.LoginView;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class test {
     public static void main(String[] args) {
-        List<Customer> customers = new ArrayList<>();
-        CustomerData.writer(customers,CustomerData.FILE);
-
+        LoginView view = new LoginView();
+        LoginController control = new LoginController(view);
+        RegisterController rgcontrol = new RegisterController();
+        // goi ham login
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Nhap id");
-        String id = scanner.nextLine();
-        System.out.println("Nhap Ten");
-        String name = scanner.nextLine();
-        System.out.println("Nhap Dia chi");
-        String address = scanner.nextLine();
-        System.out.println("Nhap sdt");
-        String phoneNumber = scanner.nextLine();
-        System.out.println("Nhap so cmnd");
-        String identity = scanner.nextLine();
+        System.out.println("chon di con cho");
+        System.out.println("1 dang nhap");
+        System.out.println("2 dang ky");
 
-        Customer  customerSc = new Customer(id,name,address,phoneNumber,identity);
-        customers.add(customerSc);
-        CustomerData.writer(customers,CustomerData.FILE);
-
-
-
-        CustomerData.reader(CustomerData.FILE);
-        for (Customer customer: customers) {
-            System.out.println(customer.toString());
-        }
+        do {
+            int choice = scanner.nextInt();
+            switch (choice){
+                case 1:
+                    control.login();
+                    break;
+                case 2:
+                    rgcontrol.registerController();
+                    break;
+                case 3:
+                    return;
+            }
+        }while (true);
+//        control.login();
     }
 }
